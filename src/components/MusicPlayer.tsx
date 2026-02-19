@@ -86,7 +86,7 @@ const MusicPlayer = ({ isVisible = true }: MusicPlayerProps) => {
       </div>
       {/* Placeholder audio - user will replace with actual file */}
       <audio ref={audioRef} loop>
-        <source src="/birthday-song.mp3" type="audio/mpeg" />
+        <source src="birthday-song.mp3" type="audio/mpeg" />
       </audio>
     </motion.div>
   );
