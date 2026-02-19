@@ -182,12 +182,11 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
 
             {step === 1 && (
               <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value.slice(0, 100))}
-                placeholder="พิมพ์มา"
-                className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground font-body placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-              />
+                type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                className="w-full max-w-full box-border px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                />
             )}
 
             {step === 2 && (
