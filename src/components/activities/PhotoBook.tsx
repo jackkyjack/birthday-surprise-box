@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect} from "react";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import memory1 from "@/assets/memory-1.jpg";
@@ -6,13 +6,14 @@ import memory2 from "@/assets/memory-2.jpg";
 import memory3 from "@/assets/memory-3.jpg";
 import memory4 from "@/assets/memory-4.jpg";
 import memory5 from "@/assets/memory-5.jpg";
+import { X } from "lucide-react";
 
 const photos = [
-  { src: memory1, caption: "วันแรกที่เจอกัน ☕" },
-  { src: memory2, caption: "ทริปทะเลสุดฟิน 🌊" },
-  { src: memory3, caption: "ฉลองปีใหม่ด้วยกัน ✨" },
-  { src: memory4, caption: "ปิกนิกวันสบายๆ 🌸" },
-  { src: memory5, caption: "คืนอ่านหนังสือด้วยกัน 📖" },
+  { src: memory1, caption: "รู้จักกันแรกๆ" },
+  { src: memory2, caption: "บ้านเพวันเดย์ทริปว่ะะะะ" },
+  { src: memory3, caption: "เจอกันครั้งแรกตอนขึ้นมหาลัย" },
+  { src: memory4, caption: "นานๆทีหน ส่งท้าย ท้ายปี" },
+  { src: memory5, caption: "เกษตรแฟร์ปีล่าสุดว่ะะ" },
 ];
 
 const swipeConfidenceThreshold = 10000;
@@ -21,6 +22,7 @@ const swipePower = (offset: number, velocity: number) =>
 
 const PhotoBook = () => {
   const [[page, direction], setPage] = useState([0, 0]);
+  const [selectedImg, setSelectedImg] = useState<string | null>(null);
 
   const paginate = (newDirection: number) => {
     const nextPage = page + newDirection;
@@ -55,10 +57,15 @@ const PhotoBook = () => {
     }),
   };
 
+  useEffect(() => {
+    if (selectedImg) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
+  }, [selectedImg]);
+
   return (
     <div className="flex flex-col items-center p-4 min-h-[60vh]">
       <p className="text-sm text-muted-foreground font-body mb-4">
-        ปัดซ้าย-ขวาเพื่อเปลี่ยนหน้า 📸
+        ปัดไปมา เหมือนๆหนังสืออ่ะ
       </p>
 
       {/* Page counter */}
@@ -96,7 +103,9 @@ const PhotoBook = () => {
             style={{ perspective: 1000 }}
           >
             <div className="w-full h-full rounded-2xl overflow-hidden shadow-soft bg-card border border-border">
-              <div className="relative h-[75%]">
+              <div className="relative h-[75%] cursor-zoom-in"
+                onClick={() => setSelectedImg(photos[page].src)}
+              >
                 <img
                   src={photos[page].src}
                   alt={photos[page].caption}
@@ -135,6 +144,34 @@ const PhotoBook = () => {
           <ChevronRight className="w-5 h-5" />
         </button>
       </div>
+      {/* Fullscreen Image Overlay */}
+      <AnimatePresence>
+        {selectedImg && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImg(null)}
+            className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center p-4 backdrop-blur-sm"
+          >
+            <motion.button
+              className="absolute top-6 right-6 text-white bg-white/10 p-2 rounded-full"
+              whileTap={{ scale: 0.9 }}
+            >
+              <X className="w-6 h-6" />
+            </motion.button>
+
+            <motion.img
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              src={selectedImg}
+              className="max-w-full max-h-full rounded-lg shadow-2xl object-contain"
+              onClick={(e) => e.stopPropagation()} // กันไม่ให้ปิดเมื่อกดที่ตัวรูป
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import puzzleImage from "@/assets/puzzle-image.jpg";
 
-const GRID_SIZE = 8;
+const GRID_SIZE = 5;
 const TOTAL_PIECES = GRID_SIZE * GRID_SIZE;
 
 function shuffle<T>(arr: T[]): T[] {
@@ -55,11 +55,11 @@ const JigsawPuzzle = () => {
   return (
     <div className="p-4 flex flex-col items-center">
       <p className="text-sm text-muted-foreground font-body mb-3">
-        กดสลับชิ้นจิ๊กซอว์เพื่อต่อรูปให้สมบูรณ์
+        เล่นดูก่อน กดๆดู
       </p>
 
       <div className="w-full max-w-sm aspect-square relative rounded-xl overflow-hidden shadow-soft border border-border">
-        <div className="grid grid-cols-8 grid-rows-8 w-full h-full">
+        <div className="grid grid-cols-5 grid-rows-5 w-full h-full">
           {pieces.map((pieceIndex, position) => {
             const correctRow = Math.floor(pieceIndex / GRID_SIZE);
             const correctCol = pieceIndex % GRID_SIZE;

@@ -15,18 +15,42 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
 
   const handleNext = () => {
     setError("");
-    if (step === 0 && !date) {
-      setError("กรุณาเลือกวันที่");
-      return;
+    
+    if (step === 0) {
+      if (!date) {
+        setError("เลือกวันก่อนดิวัยรุ่น");
+        return;
+      }
+      if (date !== "2026-02-20") {
+        setError("ห๊าาาา เอาใหม่ซิ๊");
+        return;
+      }
     }
-    if (step === 1 && !name.trim()) {
-      setError("กรุณากรอกชื่อ");
-      return;
+
+    if (step === 1) {
+      if (!name.trim()) {
+        setError("ไปพิมพ์ชื่อ!!!");
+        return;
+      }
+      if (name.trim() !== "ชะเอม") {
+        alert("แกเป็นใครกันวะ");
+        window.location.reload();
+        return;
+      }
     }
-    if (step === 2 && isSpecial === null) {
-      setError("กรุณาเลือกคำตอบ");
-      return;
+
+    if (step === 2) {
+      if (isSpecial === null) {
+        setError("กดดิ กดๆๆๆๆๆ");
+        return;
+      }
+      if (isSpecial === false) {
+        alert("ไปกดมาใหม่หมดเลย");
+        window.location.reload(); 
+        return;
+      }
     }
+
     if (step < 2) {
       setStep(step + 1);
     } else {
@@ -38,19 +62,26 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
     {
       icon: <Calendar className="w-8 h-8" />,
       title: "วันนี้วันที่เท่าไหร่?",
-      subtitle: "บอกเราหน่อยนะ",
+      subtitle: "วันเพ็ญเดือนสิบสองน้ำตนองเต็มตลิ่ง",
     },
     {
       icon: <User className="w-8 h-8" />,
-      title: "คุณคือใคร?",
-      subtitle: "บอกชื่อให้เรารู้จัก",
+      title: "ใครกดเข้ามาเอ่ย?",
+      subtitle: "นี่จะไม่ใบ้ให้นะว่าให้พิมพ์ชื่อเล่นลงไปอ่ะ",
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
-      title: "คิดว่าวันนี้เป็นวันพิเศษไหม?",
-      subtitle: "ลองตอบดูสิ",
+      title: "วันนี้วันเกิดใครมั้ยนะะะะะ?",
+      subtitle: "กดดิ กดๆๆๆๆๆ",
     },
   ];
+
+  const handleBack = () => {
+    setError("");
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gradient-warm px-4">
@@ -96,7 +127,7 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
             ยินดีต้อนรับ
           </h1>
           <p className="text-muted-foreground mt-1 font-body">
-            ตอบคำถามสักนิดนะ
+            มีคำถามนิดหน่อย
           </p>
         </motion.div>
 
@@ -154,7 +185,7 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value.slice(0, 100))}
-                placeholder="พิมพ์ชื่อของคุณ..."
+                placeholder="พิมพ์มา"
                 className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground font-body placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
               />
             )}
@@ -179,7 +210,7 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  ไม่แน่ใจ
+                  ไม่นะ
                 </button>
               </div>
             )}
@@ -188,14 +219,29 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
               <p className="text-destructive text-sm mt-3 font-body">{error}</p>
             )}
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={handleNext}
-              className="w-full mt-6 py-3 rounded-xl gradient-birthday text-primary-foreground font-display font-semibold text-lg shadow-soft hover:shadow-glow transition-all"
-            >
-              {step < 2 ? "ถัดไป →" : "เข้าสู่เว็บไซต์"}
-            </motion.button>
+            <div className="flex gap-3 mt-6">
+              {step > 0 && (
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={handleBack}
+                  className="flex-1 py-3 rounded-xl bg-secondary text-secondary-foreground font-display font-semibold text-lg border border-border hover:bg-secondary/80 transition-all"
+                >
+                  ย้อนกลับ
+                </motion.button>
+              )}
+              
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handleNext}
+                className={`${
+                  step > 0 ? "flex-[2]" : "w-full"
+                } py-3 rounded-xl gradient-birthday text-primary-foreground font-display font-semibold text-lg shadow-soft hover:shadow-glow transition-all`}
+              >
+                {step < 2 ? "ถัดไป →" : "เข้าสู่โลกเวทมนตร์"}
+              </motion.button>
+            </div>
           </motion.div>
         </AnimatePresence>
       </motion.div>

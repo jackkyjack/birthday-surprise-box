@@ -5,8 +5,8 @@ import surpriseImg from "@/assets/surprise-reveal.jpg";
 
 const MAX_SIZE = 300;
 const POP_THRESHOLD = 280;
-const SHRINK_RATE = 0.5;
-const GROW_AMOUNT = 4;
+const SHRINK_RATE = 0.1;
+const GROW_AMOUNT = 5;
 
 const PopBalloon = () => {
   const [size, setSize] = useState(80);
@@ -35,16 +35,18 @@ const PopBalloon = () => {
 
   const handleTap = () => {
     if (popped) return;
-    setTaps((t) => t + 1);
-    setSize((prev) => {
-      const next = prev + GROW_AMOUNT;
-      if (next >= POP_THRESHOLD) {
-        setPopped(true);
-        if (shrinkRef.current) cancelAnimationFrame(shrinkRef.current);
-        return MAX_SIZE;
-      }
-      return Math.min(next, MAX_SIZE);
-    });
+    
+    const nextTaps = taps + 1;
+    setTaps(nextTaps);
+
+    if (nextTaps >= 40) {
+      setPopped(true);
+      if (shrinkRef.current) cancelAnimationFrame(shrinkRef.current);
+      setSize(MAX_SIZE);
+      return;
+    }
+
+    setSize((prev) => Math.min(prev + GROW_AMOUNT, POP_THRESHOLD - 5));
   };
 
   const reset = () => {
@@ -59,7 +61,7 @@ const PopBalloon = () => {
   return (
     <div className="flex flex-col items-center justify-center p-4 min-h-[60vh] select-none">
       <p className="text-sm text-muted-foreground font-body mb-2">
-        กดบอลลูนเร็วๆ ({taps} ครั้ง)
+        กด pop เอม ({taps} ครั้ง)
       </p>
 
       {/* Progress bar */}
@@ -138,7 +140,7 @@ const PopBalloon = () => {
                 เซอร์ไพรส์!
               </p>
               <p className="text-sm text-muted-foreground font-body mt-1">
-                คุณกดไป {taps} ครั้ง
+                กดไป {taps} ครั้ง
               </p>
             </motion.div>
 

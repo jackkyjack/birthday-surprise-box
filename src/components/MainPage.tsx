@@ -11,32 +11,32 @@ const activities = [
   {
     id: "jigsaw",
     icon: <Puzzle className="w-8 h-8" />,
-    title: "ต่อจิ๊กซอว์",
-    subtitle: "ต่อภาพให้สำเร็จ",
+    title: "จิ๊กซอว์ปริศนา",
+    subtitle: "ถ้าว่างก็มาเล่นได้",
     emoji: "🧩",
     color: "from-birthday-warm to-birthday-rose",
   },
   {
     id: "balloon",
     icon: <Heart className="w-8 h-8" />,
-    title: "กดบอลลูน",
-    subtitle: "กดเร็วๆ เลย",
+    title: "pop เอม",
+    subtitle: "เหมือนๆ pop cat อ่ะ",
     emoji: "🎈",
     color: "from-birthday-peach to-birthday-gold",
   },
   {
     id: "photobook",
     icon: <BookOpen className="w-8 h-8" />,
-    title: "อัลบั้มภาพ",
-    subtitle: "ดูรูปความทรงจำ",
+    title: "Frindship",
+    subtitle: "รูปล้วนๆ",
     emoji: "📸",
     color: "from-birthday-sage to-birthday-warm",
   },
   {
     id: "password",
     icon: <Lock className="w-8 h-8" />,
-    title: "ปลดล็อค",
-    subtitle: "ใส่รหัสลับ",
+    title: "Save Box นะจ้ะ",
+    subtitle: "ไม่รู้รหัสหรอก",
     emoji: "🔐",
     color: "from-birthday-gold to-birthday-peach",
   },
@@ -76,10 +76,10 @@ const MainPage = () => {
           🎂
         </motion.div>
         <h1 className="text-3xl font-display font-bold text-gradient">
-          Happy Birthday!
+          Happy Birthday to ชะเอม
         </h1>
         <p className="text-muted-foreground font-body mt-1">
-          เลือกกิจกรรมที่อยากเล่นได้เลย
+          มีอะไรให้เล่นนิดๆหน่อยๆ ลองเล่นดู
         </p>
       </motion.div>
 
@@ -160,7 +160,7 @@ const MainPage = () => {
         )}
       </AnimatePresence>
 
-      <MusicPlayer />
+      <MusicPlayer isVisible={!activeActivity} />
     </div>
   );
 };
