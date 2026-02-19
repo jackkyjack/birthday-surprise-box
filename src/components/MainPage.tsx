@@ -12,15 +12,15 @@ const activities = [
     id: "jigsaw",
     icon: <Puzzle className="w-8 h-8" />,
     title: "ต่อจิ๊กซอว์",
-    subtitle: "ต่อภาพให้สำเร็จ!",
+    subtitle: "ต่อภาพให้สำเร็จ",
     emoji: "🧩",
-    color: "from-birthday-pink to-birthday-rose",
+    color: "from-birthday-warm to-birthday-rose",
   },
   {
     id: "balloon",
     icon: <Heart className="w-8 h-8" />,
     title: "กดบอลลูน",
-    subtitle: "กดเร็วๆ เลย!",
+    subtitle: "กดเร็วๆ เลย",
     emoji: "🎈",
     color: "from-birthday-peach to-birthday-gold",
   },
@@ -30,13 +30,13 @@ const activities = [
     title: "อัลบั้มภาพ",
     subtitle: "ดูรูปความทรงจำ",
     emoji: "📸",
-    color: "from-birthday-lavender to-birthday-pink",
+    color: "from-birthday-sage to-birthday-warm",
   },
   {
     id: "password",
     icon: <Lock className="w-8 h-8" />,
     title: "ปลดล็อค",
-    subtitle: "ใส่รหัสลับ!",
+    subtitle: "ใส่รหัสลับ",
     emoji: "🔐",
     color: "from-birthday-gold to-birthday-peach",
   },
@@ -79,7 +79,7 @@ const MainPage = () => {
           Happy Birthday!
         </h1>
         <p className="text-muted-foreground font-body mt-1">
-          เลือกกิจกรรมที่อยากเล่นได้เลย 🎉
+          เลือกกิจกรรมที่อยากเล่นได้เลย
         </p>
       </motion.div>
 

@@ -38,46 +38,42 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
     {
       icon: <Calendar className="w-8 h-8" />,
       title: "วันนี้วันที่เท่าไหร่?",
-      subtitle: "บอกเราหน่อยนะ 📅",
+      subtitle: "บอกเราหน่อยนะ",
     },
     {
       icon: <User className="w-8 h-8" />,
-      title: "คุณคือใครคะ?",
-      subtitle: "อยากรู้จักคุณ 💕",
+      title: "คุณคือใคร?",
+      subtitle: "บอกชื่อให้เรารู้จัก",
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
       title: "คิดว่าวันนี้เป็นวันพิเศษไหม?",
-      subtitle: "ลองตอบดูนะ ✨",
+      subtitle: "ลองตอบดูสิ",
     },
   ];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen gradient-warm px-4">
-      {/* Floating decorations */}
+      {/* Subtle floating dots */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute text-2xl"
-            initial={{ opacity: 0 }}
+            className="absolute w-2 h-2 rounded-full bg-primary/10"
             animate={{
-              opacity: [0.3, 0.7, 0.3],
-              y: [0, -20, 0],
-              x: [0, Math.sin(i) * 10, 0],
+              opacity: [0.2, 0.5, 0.2],
+              y: [0, -15, 0],
             }}
             transition={{
-              duration: 3 + i * 0.5,
+              duration: 4 + i * 0.5,
               repeat: Infinity,
-              delay: i * 0.3,
+              delay: i * 0.5,
             }}
             style={{
-              left: `${15 + i * 15}%`,
-              top: `${10 + (i % 3) * 30}%`,
+              left: `${20 + i * 15}%`,
+              top: `${15 + (i % 3) * 25}%`,
             }}
-          >
-            {["🌸", "💖", "🎀", "✨", "🌷", "💫"][i]}
-          </motion.div>
+          />
         ))}
       </div>
 
@@ -93,14 +89,14 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
           animate={{ scale: 1 }}
           transition={{ type: "spring", bounce: 0.5 }}
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full gradient-birthday mb-4 shadow-glow">
-            <Heart className="w-8 h-8 text-primary-foreground" />
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl gradient-birthday mb-4 shadow-glow">
+            <Heart className="w-7 h-7 text-primary-foreground" />
           </div>
           <h1 className="text-3xl font-display font-semibold text-foreground">
             ยินดีต้อนรับ
           </h1>
           <p className="text-muted-foreground mt-1 font-body">
-            ตอบคำถามสักนิดนะคะ 💕
+            ตอบคำถามสักนิดนะ
           </p>
         </motion.div>
 
@@ -173,7 +169,7 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  ใช่! ✨
+                  ใช่!
                 </button>
                 <button
                   onClick={() => setIsSpecial(false)}
@@ -183,7 +179,7 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                   }`}
                 >
-                  ไม่แน่ใจ 🤔
+                  ไม่แน่ใจ
                 </button>
               </div>
             )}
@@ -198,7 +194,7 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
               onClick={handleNext}
               className="w-full mt-6 py-3 rounded-xl gradient-birthday text-primary-foreground font-display font-semibold text-lg shadow-soft hover:shadow-glow transition-all"
             >
-              {step < 2 ? "ถัดไป →" : "เข้าสู่เว็บไซต์ 💖"}
+              {step < 2 ? "ถัดไป →" : "เข้าสู่เว็บไซต์"}
             </motion.button>
           </motion.div>
         </AnimatePresence>

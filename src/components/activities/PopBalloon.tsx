@@ -59,7 +59,7 @@ const PopBalloon = () => {
   return (
     <div className="flex flex-col items-center justify-center p-4 min-h-[60vh] select-none">
       <p className="text-sm text-muted-foreground font-body mb-2">
-        กดบอลลูนเร็วๆ! 🎈 ({taps} ครั้ง)
+        กดบอลลูนเร็วๆ ({taps} ครั้ง)
       </p>
 
       {/* Progress bar */}
@@ -108,7 +108,7 @@ const PopBalloon = () => {
                 key={i}
                 className="absolute w-4 h-4 rounded-full"
                 style={{
-                  background: ["hsl(340,65%,65%)", "hsl(25,80%,85%)", "hsl(40,80%,60%)"][i % 3],
+                  background: ["hsl(15,45%,55%)", "hsl(35,40%,70%)", "hsl(38,55%,55%)"][i % 3],
                   left: "50%",
                   top: "40%",
                 }}
@@ -135,10 +135,10 @@ const PopBalloon = () => {
                 className="w-64 h-64 rounded-2xl object-cover mx-auto shadow-glow mb-4"
               />
               <p className="font-display text-lg font-semibold text-gradient">
-                เซอร์ไพรส์! 🎉
+                เซอร์ไพรส์!
               </p>
               <p className="text-sm text-muted-foreground font-body mt-1">
-                คุณกดไป {taps} ครั้ง!
+                คุณกดไป {taps} ครั้ง
               </p>
             </motion.div>
 

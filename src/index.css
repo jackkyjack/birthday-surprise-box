@@ -6,49 +6,49 @@
 
 @layer base {
   :root {
-    --background: 20 50% 97%;
-    --foreground: 340 30% 20%;
+    --background: 30 20% 97%;
+    --foreground: 20 15% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 340 30% 20%;
+    --card: 30 15% 99%;
+    --card-foreground: 20 15% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 340 30% 20%;
+    --popover: 30 15% 99%;
+    --popover-foreground: 20 15% 15%;
 
-    --primary: 340 65% 65%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 15 45% 55%;
+    --primary-foreground: 30 20% 98%;
 
-    --secondary: 25 60% 90%;
-    --secondary-foreground: 340 30% 25%;
+    --secondary: 30 25% 92%;
+    --secondary-foreground: 20 15% 25%;
 
-    --muted: 20 30% 93%;
-    --muted-foreground: 340 15% 50%;
+    --muted: 30 15% 93%;
+    --muted-foreground: 20 10% 45%;
 
-    --accent: 30 80% 75%;
-    --accent-foreground: 30 60% 20%;
+    --accent: 35 40% 70%;
+    --accent-foreground: 30 30% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 340 20% 88%;
-    --input: 340 20% 88%;
-    --ring: 340 65% 65%;
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 15 45% 55%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    --birthday-pink: 340 65% 65%;
-    --birthday-peach: 25 80% 85%;
-    --birthday-cream: 30 60% 95%;
-    --birthday-rose: 350 50% 75%;
-    --birthday-gold: 40 80% 60%;
-    --birthday-lavender: 270 40% 80%;
+    --birthday-warm: 15 45% 55%;
+    --birthday-peach: 25 40% 82%;
+    --birthday-cream: 35 30% 95%;
+    --birthday-rose: 350 30% 68%;
+    --birthday-gold: 38 55% 55%;
+    --birthday-sage: 160 15% 70%;
 
-    --gradient-birthday: linear-gradient(135deg, hsl(340 65% 65%), hsl(25 80% 85%));
-    --gradient-warm: linear-gradient(180deg, hsl(20 50% 97%), hsl(340 30% 95%));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(340 30% 98%));
+    --gradient-birthday: linear-gradient(135deg, hsl(15 45% 55%), hsl(35 40% 70%));
+    --gradient-warm: linear-gradient(180deg, hsl(30 20% 97%), hsl(30 15% 95%));
+    --gradient-card: linear-gradient(135deg, hsl(30 15% 99%), hsl(30 10% 97%));
 
-    --shadow-soft: 0 4px 20px -4px hsl(340 65% 65% / 0.15);
-    --shadow-glow: 0 0 30px hsl(340 65% 65% / 0.2);
+    --shadow-soft: 0 4px 20px -4px hsl(20 15% 15% / 0.08);
+    --shadow-glow: 0 0 25px hsl(15 45% 55% / 0.15);
 
     --font-display: 'Kanit', sans-serif;
     --font-body: 'Quicksand', sans-serif;
@@ -91,25 +91,14 @@
   }
 }
 
-/* Confetti animation */
-@keyframes confetti-fall {
-  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-}
-
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px hsl(340 65% 65% / 0.3); }
-  50% { box-shadow: 0 0 40px hsl(340 65% 65% / 0.5); }
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0); }
-  50% { opacity: 1; transform: scale(1); }
+  0%, 100% { box-shadow: 0 0 15px hsl(15 45% 55% / 0.2); }
+  50% { box-shadow: 0 0 30px hsl(15 45% 55% / 0.35); }
 }
 
 .animate-float {

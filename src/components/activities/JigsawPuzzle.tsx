@@ -55,7 +55,7 @@ const JigsawPuzzle = () => {
   return (
     <div className="p-4 flex flex-col items-center">
       <p className="text-sm text-muted-foreground font-body mb-3">
-        กดสลับชิ้นจิ๊กซอว์เพื่อต่อรูปให้สมบูรณ์ 🧩
+        กดสลับชิ้นจิ๊กซอว์เพื่อต่อรูปให้สมบูรณ์
       </p>
 
       <div className="w-full max-w-sm aspect-square relative rounded-xl overflow-hidden shadow-soft border border-border">
@@ -91,7 +91,7 @@ const JigsawPuzzle = () => {
         onClick={reset}
         className="mt-4 px-6 py-2 rounded-xl bg-secondary text-secondary-foreground font-body font-medium text-sm hover:bg-secondary/80 transition-colors"
       >
-        สุ่มใหม่ 🔄
+        สุ่มใหม่
       </button>
 
       {/* Win celebration */}
@@ -119,7 +119,7 @@ const JigsawPuzzle = () => {
                 ยินดีด้วย!
               </h2>
               <p className="text-muted-foreground font-body mb-4">
-                คุณต่อจิ๊กซอว์สำเร็จแล้ว! 🏆
+                คุณต่อจิ๊กซอว์สำเร็จแล้ว!
               </p>
               <img
                 src={puzzleImage}
@@ -130,7 +130,7 @@ const JigsawPuzzle = () => {
                 onClick={() => setCompleted(false)}
                 className="px-6 py-2 rounded-xl gradient-birthday text-primary-foreground font-display font-medium"
               >
-                ปิด ✨
+                ปิด
               </button>
             </motion.div>
 
@@ -140,7 +140,7 @@ const JigsawPuzzle = () => {
                 key={i}
                 className="absolute w-3 h-3 rounded-full"
                 style={{
-                  background: ["hsl(340,65%,65%)", "hsl(25,80%,85%)", "hsl(40,80%,60%)", "hsl(270,40%,80%)"][i % 4],
+                  background: ["hsl(15,45%,55%)", "hsl(35,40%,70%)", "hsl(38,55%,55%)", "hsl(160,15%,70%)"][i % 4],
                   left: `${Math.random() * 100}%`,
                 }}
                 initial={{ y: -20, opacity: 1 }}

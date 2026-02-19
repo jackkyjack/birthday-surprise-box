@@ -63,7 +63,7 @@ const PasswordUnlock = () => {
                 ใส่รหัสผ่าน 6 หลัก
               </h3>
               <p className="text-sm text-muted-foreground font-body">
-                ลองเดาดูนะ 🔐
+                ลองเดาดูนะ
               </p>
             </motion.div>
 
@@ -78,7 +78,7 @@ const PasswordUnlock = () => {
                       error
                         ? "hsl(0 84.2% 60.2%)"
                         : i < input.length
-                        ? "hsl(340 65% 65%)"
+                        ? "hsl(15 45% 55%)"
                         : "hsl(var(--muted))",
                   }}
                   className="w-4 h-4 rounded-full"
@@ -119,7 +119,7 @@ const PasswordUnlock = () => {
                 animate={{ opacity: 1 }}
                 className="text-destructive text-sm mt-3 font-body"
               >
-                รหัสไม่ถูกต้อง ลองใหม่นะ 😅
+                รหัสไม่ถูกต้อง ลองใหม่นะ
               </motion.p>
             )}
           </motion.div>
@@ -146,21 +146,21 @@ const PasswordUnlock = () => {
             />
 
             <h2 className="text-2xl font-display font-bold text-gradient mb-2">
-              สุขสันต์วันเกิดนะ! 🎂
+              สุขสันต์วันเกิดนะ!
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed px-2">
               ขอให้มีความสุขมากๆ สุขภาพแข็งแรง
               <br />
               สมหวังทุกอย่างที่ตั้งใจไว้
               <br />
-              รักนะ~ 💕✨
+              รักนะ~
             </p>
 
             <button
               onClick={reset}
               className="mt-4 px-6 py-2 rounded-xl bg-secondary text-secondary-foreground font-body font-medium text-sm"
             >
-              ล็อคใหม่ 🔒
+              ล็อคใหม่
             </button>
           </motion.div>
         )}

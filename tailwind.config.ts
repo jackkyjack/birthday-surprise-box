@@ -52,12 +52,12 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         birthday: {
-          pink: "hsl(var(--birthday-pink))",
+          warm: "hsl(var(--birthday-warm))",
           peach: "hsl(var(--birthday-peach))",
           cream: "hsl(var(--birthday-cream))",
           rose: "hsl(var(--birthday-rose))",
           gold: "hsl(var(--birthday-gold))",
-          lavender: "hsl(var(--birthday-lavender))",
+          sage: "hsl(var(--birthday-sage))",
         },
       },
       borderRadius: {
