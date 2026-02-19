@@ -62,7 +62,7 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
     {
       icon: <Calendar className="w-8 h-8" />,
       title: "วันนี้วันที่เท่าไหร่?",
-      subtitle: "วันเพ็ญเดือนสิบสองน้ำตนองเต็มตลิ่ง",
+      subtitle: "วันเพ็ญเดือนสิบสองน้ำตะนองเต็มตลิ่ง",
     },
     {
       icon: <User className="w-8 h-8" />,
@@ -176,17 +176,18 @@ const ValidationPage = ({ onValidated }: ValidationPageProps) => {
                 type="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground font-body focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                className="w-full max-w-full box-border px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
               />
             )}
 
             {step === 1 && (
               <input
-                type="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                className="w-full max-w-full box-border px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value.slice(0, 100))}
+                placeholder="พิมพ์มา"
+                className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground font-body placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+              />
             )}
 
             {step === 2 && (
